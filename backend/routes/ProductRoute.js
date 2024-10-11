@@ -7,12 +7,14 @@ import {
     DeleteProducts
 } from "../controllers/Products.js"
 
+import { verifyUser } from "../middlewares/AuthMidlleware.js"
+
 const router = express.Router()
-router.get("/product",GetProducts)
-router.get("/product/:id",GetProductsById)
-router.post("/product",CreateProducts)
-router.patch("/product/:id",UpdateProducts)
-router.delete("/product/:id",DeleteProducts)
+router.get("/product", verifyUser,GetProducts)
+router.get("/product/:id", verifyUser,GetProductsById)
+router.post("/product", verifyUser,CreateProducts)
+router.patch("/product/:id", verifyUser,UpdateProducts)
+router.delete("/product/:id", verifyUser,DeleteProducts)
 
 
 

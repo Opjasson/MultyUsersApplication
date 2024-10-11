@@ -1,0 +1,78 @@
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "azmi ghazy",
+    "email": "azmi@gmail.com",
+    "password": "1234",
+    "confPassword": "1234",
+    "role": "user"
+}
+
+###
+//get all users
+GET http://localhost:5000/users
+
+###
+//get user byId
+GET http://localhost:5000/users/9083f03c-8558-44f0-89b8-b84c2badf542
+
+
+###
+//Update user
+PATCH http://localhost:5000/users/9083f03c-8558-44f0-89b8-b84c2badf542
+Content-Type: application/json
+
+{
+    "name": "admin1",
+    "email": "admin@gmail.com",
+    "password": "",
+    "confPassword": "",
+    "role": "admin"
+}
+
+###
+// Delete user byID
+DELETE  http://localhost:5000/users/4dba80f1-b682-4f1d-8dda-640319bc2739
+
+###
+// Login user 
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "azmi@gmail.com",
+    "password":"1234"
+}
+
+###
+// Login admin
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password":"admin123"
+}
+
+###
+// me User
+GET http://localhost:5000/me
+
+###
+// Logout User
+DELETE http://localhost:5000/logout
+
+###
+// Get products
+GET http://localhost:5000/product
+
+###
+// POst data prodct
+POST http://localhost:5000/product
+Content-Type: application/json
+
+{
+    "name" : "Kulkas super",
+    "price" : 20000
+}
