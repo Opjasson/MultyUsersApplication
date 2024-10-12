@@ -2,8 +2,8 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "name": "azmi ghazy",
-    "email": "azmi@gmail.com",
+    "name": "user2",
+    "email": "user@gmail.com",
     "password": "1234",
     "confPassword": "1234",
     "role": "user"
@@ -41,7 +41,7 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email": "azmi@gmail.com",
+    "email": "user@gmail.com",
     "password":"1234"
 }
 
@@ -68,11 +68,29 @@ DELETE http://localhost:5000/logout
 GET http://localhost:5000/product
 
 ###
+// Get single products
+GET http://localhost:5000/product/af0e6ede-3b8c-43ee-ac85-5599076d167f
+
+
+
+###
 // POst data prodct
 POST http://localhost:5000/product
 Content-Type: application/json
 
 {
-    "name" : "Kulkas super",
+    "name" : "mesin cuci",
     "price" : 20000
 }
+
+###
+//Updated product
+PATCH  http://localhost:5000/product/af0e6ede-3b8c-43ee-ac85-5599076d167f
+Content-Type: application/json
+
+{
+    "name" : "kulkas updated",
+    "price" : 33000
+}
+
+/node_modules
