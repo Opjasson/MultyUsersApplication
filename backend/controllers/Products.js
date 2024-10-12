@@ -121,4 +121,31 @@ export const UpdateProducts = async(req, res) => {
     }
 };
 
-export const DeleteProducts = (req, res) => {};
+export const DeleteProducts = async(req, res) => {
+    try {
+        const product = await Products.findOne({
+            where:{
+                uuid: req.params.id
+            }
+        })
+        if(!product) return res.status(404).json({msg: "Data tidak ditemukkan!"})
+        const { name, price } = req.body;
+        if (req.role === "admin") {
+            await Products.destroy({
+                where: {
+                    id: product.id
+                },
+            });
+        } else {
+            if(req.userId !== product.userId) return res.status(403).json({msg: "Akses terlarang!"})
+            await Products.destroy({
+                where: {
+                    [Op.and]:[{id: product.id}, {userId: req.userId}],
+                },
+            });
+        }
+        res.status(200).json({msg: "Product delete succesfully!"});
+    } catch (error) {
+        res.status(500).json({ msg: error.message });
+    }
+};
