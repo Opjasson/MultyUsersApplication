@@ -42,7 +42,7 @@ export const CreateUser = async (req, res) => {
         });
         res.status(201).json({ msg: "Register berhasil" });
     } catch (error) {
-        response.status(400).json({ msg: error.message });
+        res.status(400).json({ msg: error.message });
     }
 };
 
