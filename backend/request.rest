@@ -41,8 +41,8 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email": "user@gmail.com",
-    "password":"1234"
+    "email": "admin@gmail.com",
+    "password":"admin123"
 }
 
 ###
@@ -79,8 +79,8 @@ POST http://localhost:5000/product
 Content-Type: application/json
 
 {
-    "name" : "mesin balap",
-    "price" : 20000
+    "name" : "Pangsit balado",
+    "price" : 25000
 }
 
 ###
@@ -95,5 +95,5 @@ Content-Type: application/json
 
 ###
 //Delete product
-DELETE  http://localhost:5000/product/41690775-502d-4176-8dd3-f3df9f1056da
+DELETE  http://localhost:5000/product/e1cf1e3c-37a7-4def-8be5-0d79a6daa838
 

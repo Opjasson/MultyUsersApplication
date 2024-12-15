@@ -55,7 +55,11 @@ export const UpdateUser = async (req, res) => {
     });
     if (!user) return res.status(404).json({ msg: "User Tidak Ditemukan" });
     const { name, email, password, confPassword, role } = req.body;
+
+
+    // Proses hash password
     let hashPassword;
+
     if (password === "" || password === null) {
         hashPassword = user.password;
     } else {
@@ -66,6 +70,8 @@ export const UpdateUser = async (req, res) => {
             .status(400)
             .json({ msg: "password dan confPassword tidak cocok" });
 
+
+    // Proses update yang sesuai user.id
     try {
         await Users.update(
             {
